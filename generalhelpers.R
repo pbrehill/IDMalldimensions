@@ -92,5 +92,3 @@ compile_all_coef <- function(scores, coefficients_list, dimlist, modelno){
 #   coef_name <- colnames(dimensions_list[[1]][[1]])[i]
 #   try(coefficients_list_ind[[coef_name]] <- extract_coefficient(dimensions_list, modelno = 1, variable = coef_name))
 # }
-
-hhh_ests_df <- compile_all_coef(all_themes, coefficients_list_hhh, dimensions_list, 2)

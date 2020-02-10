@@ -5,7 +5,7 @@ library(dplyr)
 import.clean <- function(csv)
 {
   # Import data
-  fiji_scored <- read.csv(file=csv, na.strings = "NA")
+  fiji_scored <- read.csv(csv)
   
   fiji_jst_scores <- fiji_scored #%>%
     # dplyr::select(sex, age.categories, area, EA, sector, ethnicity, disability3, relationship,
@@ -15,7 +15,7 @@ import.clean <- function(csv)
   for (i in 1:ncol(fiji_jst_scores)){
     fiji_jst_scores[i] <- fiji_jst_scores[i] %>%
       round() %>%
-      sapply(paste2) %>%
+      sapply(paste0) %>%
       factor(ordered = TRUE, exclude = c(NA, "NA"))
   }
   
@@ -46,5 +46,5 @@ import.clean <- function(csv)
   fiji_jst_scores$hhh_sex <- as.factor(fiji_jst_scores$hhh_sex)
   fiji_jst_scores$HHID_unique <- as.factor(fiji_jst_scores$HHID_unique)
   
-  return(list(fiji_jst_scores, fiji_scored))
+  return(fiji_jst_scores)
 }
