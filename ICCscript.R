@@ -38,3 +38,9 @@ ICC_fiji <- function(df, scores){
   
   return(ICC_df)
 }
+
+fiji_jst_scores %>%
+  filter(score12 == 0) %>%
+  #group_by(sex, score12) %>%
+  summary()
+  
