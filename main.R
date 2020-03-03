@@ -9,9 +9,7 @@ source("ICCscript.R")
 library(dplyr)
 
 # Import data
-bigimport <- import.clean("fiji_newscored_cleaned_Oct19.csv")
-fiji_jst_scores <- bigimport[[1]]
-fiji_scored <- bigimport[[2]]
+fiji_jst_scores <- import.clean("fiji_newscored_cleaned_Oct19.csv")
 
 # Set dimension names
 dim_names <- c("Food", "Water", "Shelter", "Health", "Education", "Energy", "Sanitation",
@@ -23,7 +21,7 @@ main_scores <- c("score1", "score2", "score3", "score4",  "score5", "score6", "s
                  "score8", "score9", "score12", "score13", "score14", "score15")
 
 # Get ICCs
-results_ICC <- ICC_fiji(fiji_scored, main_scores)
+results_ICC <- ICC_fiji(fiji_jst_scores, main_scores)
 results_ICC$Dimension <- main_scores
 
 # Set control variables
